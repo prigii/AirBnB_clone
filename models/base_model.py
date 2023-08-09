@@ -7,16 +7,14 @@ defines the class baseModel for our instances
 class BaseModel:
     '''class BaseModel'''
     def __init__(self, *args, **kwargs):
-        if kwargs is not None:
+        if kwargs is None:
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = value
                 if key == 'created_at':
                     self.created_at = datetime.date.fromisoformat(value)
-                if key == "updated_at":
+                if key == 'updated_at':
                     self.updated_at = datetime.date.fromisoformat(value)
-                    
-
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
