@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     def do_help(self, arg: str) -> bool | None:
         """Type help <topic> to get help on different commands"""
         return super().do_help(arg)
-    def do_eof(self, line):
+    def do_EOF(self, line):
         """Handle EOF"""
         print("Exiting the CLI")
         return True
