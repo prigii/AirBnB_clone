@@ -16,6 +16,8 @@ class BaseModel:
                     self.created_at = datetime.fromisoformat(value)
                 elif key == 'updated_at':
                     self.updated_at = datetime.fromisoformat(value)
+                elif key == '__class__':
+                    continue
                 else:
                     self.__dict__[key] = kwargs[key]
         else:
@@ -35,6 +37,6 @@ class BaseModel:
     def to_dict(self):
         dicts = self.__dict__
         dicts['__class__'] = (self.__class__.__name__)
-        dicts['created_at'] = dicts['created_at'].isoformat()
-        dicts['updated_at'] = dicts['updated_at'].isoformat()
+        dicts['created_at'] = self.created_at.isoformat()
+        dicts['updated_at'] = self.updated_at.isoformat()
         return (dicts)
