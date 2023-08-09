@@ -6,10 +6,24 @@ defines the class baseModel for our instances
 
 class BaseModel:
     '''class BaseModel'''
-    def __init__(self):
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.save()
+    def __init__(self, *args, **kwargs):
+        if kwargs is not None:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                if key == 'created_at':
+                    self.created_at = datetime.date.fromisoformat(value)
+                if key == "updated_at":
+                    self.updated_at = datetime.date.fromisoformat(value)
+                    
+
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.save()
+
+
+
     
     def __str__(self):
         # should print in format [<class name>] (<self.id>) <self.__dict__>
@@ -22,3 +36,4 @@ class BaseModel:
         dicts['created_at'] = self.created_at.isoformat()
         dicts['updated_at'] = self.updated_at.isoformat()
         return (dicts)
+    
