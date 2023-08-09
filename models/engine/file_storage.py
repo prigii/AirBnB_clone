@@ -7,24 +7,27 @@ class FileStorage:
 
     def all(self):
         """returns dictionary __objects"""
-        return (self.__objects)
+        return self.__objects
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
-        self.__objects["{}.{}".format(
-            obj.__class__.__name__, obj.id)] = obj
+        key = "{}.{}".format(type(obj).__name__, obj.id)
+        self.__objects[key] = obj
 
     def save(self):
         # serializer
-        for k, v in self.__objects.items():
-            with open(self.__file_path, 'w', encoding='utf-8') as f:
-                d = {k: v.to_dict() for k, v in self.__objects.items()}
-                json.dump(d, f)
+        save_obj = {}
+        for key, value in self.__objects.items():
+            save_obj[key] = value.to_dict()
+        with open(self.__file_path, 'w', encoding='utf-8') as f:
+            json.dump(save_obj, f)
 
     def reload(self):
         # deserializer
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
-                self.__objects = json.loads(f.read())
-        except:
-            return
+                obj_dict = json.load(f)
+            for key, value in obj_dict.items():
+                self.new(eval(key.split(".")[0])(**value))
+        except FileNotFoundError:
+            pass
