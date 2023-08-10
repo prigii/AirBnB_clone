@@ -5,7 +5,6 @@ This is the amenities class
 """
 class Amenity:
     """
-    Creates amenities instances
+    Creates amenities objects
     """
-    def __init__(self, name):
-        self.name=name
+    name=""

@@ -1,5 +1,5 @@
 import json
-
+import datetime
 
 class FileStorage:
     __file_path = "file.json"
@@ -21,7 +21,24 @@ class FileStorage:
             save_obj[key] = value.to_dict()
         with open(self.__file_path, 'w', encoding='utf-8') as f:
             json.dump(save_obj, f)
+    def classes(self):
+        """
+        Creates a dict of all valid classes
+        """
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
 
+        classes = {"BaseModel": BaseModel, "User": User,
+                   "State": State, "City": City,
+                   "Amenity": Amenity, "Place": Place,
+                   "Review": Review}
+        return classes
+    
     def reload(self):
         # deserializer
         try:
@@ -31,3 +48,39 @@ class FileStorage:
                 self.new(eval(key.split(".")[0])(**value))
         except FileNotFoundError:
             pass
+    def attr(self):
+        attr = {
+            "BaseModel":
+                {"id": str,
+                    "created_at": datetime.datetime,
+                    "updated_at": datetime.datetime},
+            "User":
+                {"email": str,
+                    "password": str,
+                    "first_name": str,
+                    "last_name":str},
+            "State":
+                {"name": str},
+            "City":
+                {"state_id": str,
+                    "name": str},
+            "Amenity":
+                {"name": str},
+            "Place":
+                {"city_id":str,
+                    "user_id": str,
+                    "name": str,
+                    "description": str,
+                    "number_rooms": int,
+                    "number_bathrooms": int,
+                    "max_guest": int,
+                    "price_by_night": int,
+                    "latitude": float,
+                    "longitude": float,
+                    "amenity_ids": list},
+            "Review":
+                {"place_id": str,
+                    "user_id": str,
+                    "text": str}
+        }
+        return attr
