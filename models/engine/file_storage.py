@@ -1,9 +1,10 @@
 import json
 import datetime
 
+
 class FileStorage:
     __file_path = "file.json"
-    __objects = {}
+    __objects = {} # contain key:value, key is Basemodel.class_id, value is The object itself i.e the instance
 
     def all(self):
         """returns dictionary __objects"""
@@ -15,12 +16,13 @@ class FileStorage:
         self.__objects[key] = obj
 
     def save(self):
-        # serializer
+        ''' serializes __objects to the JSON file (path: __file_path)'''
         save_obj = {}
         for key, value in self.__objects.items():
-            save_obj[key] = value.to_dict()
+            save_obj[key] = value.to_dict() # keys are basemodel.id and value is a dictionary
         with open(self.__file_path, 'w', encoding='utf-8') as f:
             json.dump(save_obj, f)
+    
     def classes(self):
         """
         Creates a dict of all valid classes
@@ -40,14 +42,17 @@ class FileStorage:
         return classes
     
     def reload(self):
-        # deserializer
+        from models.base_model import BaseModel
+        '''deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; otherwise, do nothing. If the file \ 
+            doesn’t exist, no exception should be raised)'''
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
-                obj_dict = json.load(f)
-            for key, value in obj_dict.items():
-                self.new(eval(key.split(".")[0])(**value))
+                new_dict = json.load(f)
+                for key, value in new_dict.items():
+                    self.__objects[key] = BaseModel(**value)                                                                              
         except FileNotFoundError:
             pass
+    
     def attr(self):
         attr = {
             "BaseModel":
