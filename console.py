@@ -7,7 +7,6 @@ import json
 
 
 class HBNBCommand(cmd.Cmd):
-    intro = "Welcome to AirBnB Console CLI. Type 'help' for available commands"
     prompt = "(hbnb)"
     all_classes = ["BaseModel", "User", "State",
                    "City", "Amenity", "Place", "Review"]
@@ -83,21 +82,10 @@ class HBNBCommand(cmd.Cmd):
                 for key, value in dicts.items():
                     print(value)
 
-    def do_count(self, arg):
-        args = arg.split()
-        if not args[0]:
-            print("** class name missing **")
-        elif args[0] not in HBNBCommand.all_classes():
-            print("** class doesn't exist **")
-        else:
-            count = [key for key in storage.all() if
-                     key.startswith(args[0] + '.')]
-            print(len(count))
-
     def do_update(self, arg):
         """Updates an instance based on the class name and id by adding or updating attribute"""
         args = arg.split()
-        if args:                
+        if args:
             if args[0] not in HBNBCommand.all_classes:
                 print("** class doesn't exist **")
                 return
