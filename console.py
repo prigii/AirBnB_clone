@@ -72,15 +72,23 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg: str):
         """Prints all string representation of all instances"""
-        args = arg.split()
-        if args:
-            if args[0] not in HBNBCommand.all_classes:
+        args = arg.split('.')
+        if len(args) > 0:
+            class_name = args[0]
+            if class_name not in HBNBCommand.all_classes:
                 print("** class doesn't exist **")
                 return
+            elif len(args) > 1 and args[1] == "all()": #class exists in storage.all()
+                # retrieve all instances of that class
+                instances = storage.get_all(class_name)
+                for instance in instances:
+                    print(instance)
             else:
-                dicts = storage.all()
-                for key, value in dicts.items():
-                    print(value)
+                print("** Invalid syntax. Use <class name>.all**")
+        else:
+            dicts = storage.all()
+            for key, value in dicts.items():
+                print(value)
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id by adding or updating attribute"""
