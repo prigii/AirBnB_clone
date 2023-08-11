@@ -42,13 +42,13 @@ class FileStorage:
     
     def reload(self):
         from models.base_model import BaseModel
-        '''deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; otherwise, do nothing. If the file \ 
+        '''deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; otherwise, do nothing. If the file\ 
             doesn’t exist, no exception should be raised)'''
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
                 new_dict = json.load(f)
                 for key, value in new_dict.items():
-                    self.__objects[key] = BaseModel(**value)                                                                              
+                    self.__objects[key] = self.classes()[value["__class__"]](**value)                                                                              
         except FileNotFoundError:
             pass
     
