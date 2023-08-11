@@ -10,7 +10,7 @@ class BaseModel:
     '''class BaseModel'''
 
     def __init__(self, *args, **kwargs):
-
+        '''initializes the class BaseModel'''
         for key, value in kwargs.items():
             if key != "__class__":
                 if key == 'created_at' or key == 'updated_at':
@@ -27,14 +27,19 @@ class BaseModel:
             storage.new(self)
 
     def __str__(self):
-        # should print in format [<class name>] (<self.id>) <self.__dict__>
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        '''should print in format [<class name>] (<self.id>) <self.__dict__>'''
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)
 
     def save(self):
+        '''updates the public instance attribute updated_at
+          with the current datetime'''
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
+        '''returns a dictionary containing all keys/values of
+          __dict__ of the instance'''
         dicts = self.__dict__.copy()
         dicts['__class__'] = (self.__class__.__name__)
         dicts['created_at'] = self.created_at.isoformat()

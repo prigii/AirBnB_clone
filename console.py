@@ -1,18 +1,23 @@
 #!/usr/bin/python3
-
 import cmd
 from models.base_model import BaseModel
 from models import storage
 import json
+'''
+    This is the console for the AirBnB clone project
+'''
 
 
 class HBNBCommand(cmd.Cmd):
+    """Command interpreter for the AirBnB clone"""
+
     prompt = "(hbnb)"
     all_classes = ["BaseModel", "User", "State",
                    "City", "Amenity", "Place", "Review"]
 
     def do_create(self, arg):
-        """Creates a new instance of the BaseModel, saves it and prints the ID"""
+        """Creates a new instance of the BaseModel, saves it
+          and prints the ID"""
         args = arg.split()
         if args:
             if args[0] not in HBNBCommand.all_classes:
@@ -27,7 +32,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, arg):
-        """Prints the string representation of an instance based on the class name and id"""
+        """Prints the string representation of an instance
+        based on the class name and id"""
         args = arg.split()
         if args:
             if args[0] not in HBNBCommand.all_classes:
@@ -72,6 +78,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg: str):
         """Prints all string representation of all instances"""
+        listofdicts = []
         args = arg.split('.')
         if args[0]:
             if len(args) > 0 and args[0] not in HBNBCommand.all_classes:
@@ -81,14 +88,17 @@ class HBNBCommand(cmd.Cmd):
                 dicts = storage.all()
                 for key, value in dicts.items():
                     if args[0] == value.__class__.__name__:
-                        print(value)
+                        listofdicts += [str(value)]
+                print(listofdicts)
         else:
             dicts = storage.all()
             for key, value in dicts.items():
-                print(value)
+                listofdicts += [str(value)]
+            print(listofdicts)
 
     def do_update(self, arg):
-        """Updates an instance based on the class name and id by adding or updating attribute"""
+        """Updates an instance based on the class name
+          and id by adding or updating attribute"""
         args = arg.split()
         if args:
             if args[0] not in HBNBCommand.all_classes:
