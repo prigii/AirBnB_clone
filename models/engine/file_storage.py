@@ -9,14 +9,6 @@ class FileStorage:
     def all(self):
         """returns dictionary __objects"""
         return self.__objects
-    def get_all(self, cls=None):
-        """Retrieve all instances of a specified class or all instances if cls is None"""
-        if cls:
-           instances = {key: value for key, value in self.__objects.items() if isinstance(value, cls)}
-        else:
-            instances = self.__objects
-        return instances
-
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
         key = "{}.{}".format(type(obj).__name__, obj.id)
