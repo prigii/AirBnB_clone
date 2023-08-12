@@ -152,7 +152,12 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
                 return
             elif len(args) == 2:
-                print("** attribute name missing **")
+                dicts = storage.all()
+                for key, value in dicts.items():
+                    if (str(args[0]) + '.' + str(args[1])) == key:
+                        print("** attribute name missing **")
+                        return
+                print("** no instance found **")
                 return
             elif len(args) == 3:
                 print("** value missing **")
