@@ -19,7 +19,6 @@ class HBNBCommand(cmd.Cmd):
 
     Attributes:
         prompt (str): The command prompt string.
-        all_classes (list): A list of available class names for object management.
     """
 
     prompt = "(hbnb)"
@@ -168,7 +167,7 @@ class HBNBCommand(cmd.Cmd):
                     if (str(args[0]) + '.' + str(args[1])) == key:
                         setattr(value, args[2], args[3])
                         value.save()
-                        return   
+                        return
                 print("** no instance found **")
                 return
         else:
