@@ -207,5 +207,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    '''Entry point for the command interpreter'''
     HBNBCommand().cmdloop()
