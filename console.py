@@ -163,10 +163,9 @@ class HBNBCommand(cmd.Cmd):
                     if (str(args[0]) + '.' + str(args[1])) == key:
                         setattr(value, args[2], args[3])
                         value.save()
-                        return
-                    else:
-                        print("** no instance found **")
-                        return
+                        return   
+                print("** no instance found **")
+                return
         else:
             print("** class name missing **")
             return
