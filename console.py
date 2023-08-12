@@ -189,7 +189,7 @@ class HBNBCommand(cmd.Cmd):
         print("This command allows you to exit the command", end=" ")
         print("interpreter gracefully.\n")
 
-    def do_help(self, arg: str) -> bool | None:
+    def do_help(self, arg: str):
         """Type help <topic> to get help on different commands"""
         return super().do_help(arg)
 
