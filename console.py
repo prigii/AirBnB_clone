@@ -206,11 +206,11 @@ class HBNBCommand(cmd.Cmd):
         print("This command allows you to exit the command", end=" ")
         print("interpreter gracefully by pressing Ctrl+D (EOF).\n")
 
-    def emptyline(self) -> bool:
+    def emptyline(self):
         '''Do nothing on empty line'''
         return False
 
-    def default(self, line: str) -> None:
+    def default(self, line: str):
         '''Default behavior for cmd module when no command is found'''
         return super().default(line)
 
