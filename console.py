@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 '''
     This is the console for the AirBnB clone project
+     A command-line interpreter for managing objects within
+    an HBNB data storage system.
 '''
 import cmd
 from models.base_model import BaseModel
