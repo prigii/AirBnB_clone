@@ -1,8 +1,15 @@
+#!/usr/bin/python3
+'''
+    File storage class
+'''
 import json
 import datetime
 
 
 class FileStorage:
+    '''
+    class for file storage
+    '''
     __file_path = "file.json"
     __objects = {}
 

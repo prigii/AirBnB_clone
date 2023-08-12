@@ -1,8 +1,8 @@
-from models.base_model import BaseModel
-
+#!/usr/bin/python3
 """
 Class for creating new users
 """
+from models.base_model import BaseModel
 
 
 class User(BaseModel):

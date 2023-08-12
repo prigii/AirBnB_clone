@@ -1,8 +1,10 @@
-from models.base_model import BaseModel
-
+#!/usr/bin/python3
 """
 This is the city instance creator
 """
+from models.base_model import BaseModel
+
+
 
 
 class State(BaseModel):

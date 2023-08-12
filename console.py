@@ -1,15 +1,17 @@
 #!/usr/bin/python3
+'''
+    This is the console for the AirBnB clone project
+'''
 import cmd
 from models.base_model import BaseModel
 from models import storage
 import json
-'''
-    This is the console for the AirBnB clone project
-'''
 
 
 class HBNBCommand(cmd.Cmd):
-    """Command interpreter for the AirBnB clone"""
+    """
+    Command interpreter for the AirBnB clone
+    """
 
     prompt = "(hbnb)"
     all_classes = ["BaseModel", "User", "State",
@@ -30,6 +32,14 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
             return
+
+    def help_create(self):
+        """
+        Display help information for the create command.
+        """
+        print("\nUsage: create <class_name>\n")
+        print("This command creates a new instance of", end=" ")
+        print("the specified class and assigns it a unique identifier.\n")
 
     def do_show(self, arg):
         """Prints the string representation of an instance
@@ -54,6 +64,13 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
+    def help_show(self):
+        """
+        Display help information for the show command.
+        """
+        print("\nUsage: show <class_name> <id>\n")
+        print("This command displays an instance's string representation.\n")
+
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id"""
         args = arg.split()
@@ -76,6 +93,14 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
+    def help_destroy(self):
+        """
+        Display help for the destroy command.
+        """
+        print("\nUsage: help destroy\n")
+        print("Destroy command deletes an instance by class", end=' ')
+        print("name and instance ID.\n")
+
     def do_all(self, arg: str):
         """Prints all string representation of all instances"""
         listofdicts = []
@@ -90,11 +115,21 @@ class HBNBCommand(cmd.Cmd):
                     if args[0] == value.__class__.__name__:
                         listofdicts += [str(value)]
                 print(listofdicts)
+
         else:
             dicts = storage.all()
             for key, value in dicts.items():
                 listofdicts += [str(value)]
             print(listofdicts)
+
+    def help_all(self):
+        """
+        Display help for the all command.
+        """
+        print("\nUsage: help all\n")
+        print("All command displays string representations of all instances.")
+        print("Optionally, provide a class name to filter instances", end=' ')
+        print("of a specific class.\n")
 
     def do_update(self, arg):
         """Updates an instance based on the class name
@@ -124,9 +159,26 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
+    def help_update(self):
+        """
+        Display help for the update command.
+        """
+        print("\nUsage: help update\n")
+        print("Update command modifies an instance's attribute value", end=" ")
+        print("by class name, instance ID, attribute name, and value.")
+        print("Provide required arguments to update.\n")
+
     def do_quit(args, line):
         """Quits the command interpreter"""
         return True
+
+    def help_quit(self):
+        """
+        Display help information for the quit command.
+        """
+        print("\nUsage: quit\n")
+        print("This command allows you to exit the command", end=" ")
+        print("interpreter gracefully.\n")
 
     def do_help(self, arg: str) -> bool | None:
         """Type help <topic> to get help on different commands"""
@@ -137,12 +189,23 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
+    def help_EOF(self):
+        """
+        Display help information for the EOF command.
+        """
+        print("\nUsage: EOF\n")
+        print("This command allows you to exit the command", end=" ")
+        print("interpreter gracefully by pressing Ctrl+D (EOF).\n")
+
     def emptyline(self) -> bool:
+        '''Do nothing on empty line'''
         return False
 
     def default(self, line: str) -> None:
+        '''Default behavior for cmd module when no command is found'''
         return super().default(line)
 
 
 if __name__ == '__main__':
+    '''Entry point for the command interpreter'''
     HBNBCommand().cmdloop()

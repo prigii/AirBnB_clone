@@ -7,6 +7,7 @@ from models.state import State
 
 
 class TestState(unittest.TestCase):
+    '''class for TestState'''
     def test_attributes(self):
         state = State()
         self.assertEqual(state.name, "")

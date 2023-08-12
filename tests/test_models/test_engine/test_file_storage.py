@@ -9,6 +9,7 @@ from models.base_model import BaseModel
 
 
 class TestFileStorage(unittest.TestCase):
+    '''class for TestFileStorage'''
     __file_path = "file.json"
 
     def setUp(self):

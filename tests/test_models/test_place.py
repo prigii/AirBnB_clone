@@ -7,6 +7,7 @@ from models.place import Place
 
 
 class TestPlace(unittest.TestCase):
+    '''class for TestPlace'''''
     def test_attributes(self):
         place = Place()
         self.assertEqual(place.city_id, "")

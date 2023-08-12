@@ -1,9 +1,10 @@
-import uuid
-from datetime import datetime
-from models import storage
+#!/usr/bin/python3
 '''
 defines the class baseModel for our instances
 '''
+import uuid
+from datetime import datetime
+from models import storage
 
 
 class BaseModel:
