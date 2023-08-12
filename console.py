@@ -164,6 +164,9 @@ class HBNBCommand(cmd.Cmd):
                         setattr(value, args[2], args[3])
                         value.save()
                         return
+                    else:
+                        print("** no instance found **")
+                        return
         else:
             print("** class name missing **")
             return
