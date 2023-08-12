@@ -10,7 +10,14 @@ import json
 
 class HBNBCommand(cmd.Cmd):
     """
-    Command interpreter for the AirBnB clone
+        HBNBCommand class
+
+    A command-line interpreter for managing objects within
+    an HBNB data storage system.
+
+    Attributes:
+        prompt (str): The command prompt string.
+        all_classes (list): A list of available class names for object management.
     """
 
     prompt = "(hbnb)"
