@@ -208,7 +208,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         '''Do nothing on empty line'''
-        return False
+        pass
 
     def default(self, line: str):
         '''Default behavior for cmd module when no command is found'''
