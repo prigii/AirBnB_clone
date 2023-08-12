@@ -113,8 +113,8 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg: str):
         """Prints all string representation of all instances"""
         listofdicts = []
-        args = arg.split('.')
-        if args[0]:
+        args = arg.split()
+        if args:
             if len(args) > 0 and args[0] not in HBNBCommand.all_classes:
                 print("** class doesn't exist **")
                 return
