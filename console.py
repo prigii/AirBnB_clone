@@ -7,7 +7,7 @@
 import cmd
 from models.base_model import BaseModel
 from models import storage
-import json
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -26,10 +26,10 @@ class HBNBCommand(cmd.Cmd):
     all_classes = ["BaseModel", "User", "State",
                    "City", "Amenity", "Place", "Review"]
 
-    def do_create(self, arg):
+    def do_create(self, args):
         """Creates a new instance of the BaseModel, saves it
           and prints the ID"""
-        args = arg.split()
+        args = shlex.split(args)
         if args:
             if args[0] not in HBNBCommand.all_classes:
                 print("** class doesn't exist **")
@@ -50,10 +50,10 @@ class HBNBCommand(cmd.Cmd):
         print("This command creates a new instance of", end=" ")
         print("the specified class and assigns it a unique identifier.\n")
 
-    def do_show(self, arg):
+    def do_show(self, args):
         """Prints the string representation of an instance
         based on the class name and id"""
-        args = arg.split()
+        args = shlex.split(args)
         if args:
             if args[0] not in HBNBCommand.all_classes:
                 print("** class doesn't exist **")
@@ -80,9 +80,9 @@ class HBNBCommand(cmd.Cmd):
         print("\nUsage: show <class_name> <id>\n")
         print("This command displays an instance's string representation.\n")
 
-    def do_destroy(self, arg):
+    def do_destroy(self, args):
         """Deletes an instance based on the class name and id"""
-        args = arg.split()
+        args = shlex.split(args)
         if args:
             if args[0] not in HBNBCommand.all_classes:
                 print("** class doesn't exist **")
@@ -140,10 +140,10 @@ class HBNBCommand(cmd.Cmd):
         print("Optionally, provide a class name to filter instances", end=' ')
         print("of a specific class.\n")
 
-    def do_update(self, arg):
+    def do_update(self, args):
         """Updates an instance based on the class name
           and id by adding or updating attribute"""
-        args = arg.split()
+        args = shlex.split(args)
         if args:
             if args[0] not in HBNBCommand.all_classes:
                 print("** class doesn't exist **")
