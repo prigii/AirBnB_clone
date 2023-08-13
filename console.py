@@ -8,6 +8,7 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 import shlex
+import re
 
 
 class HBNBCommand(cmd.Cmd):
@@ -138,6 +139,31 @@ class HBNBCommand(cmd.Cmd):
         print("All command displays string representations of all instances.")
         print("Optionally, provide a class name to filter instances", end=' ')
         print("of a specific class.\n")
+    
+    def value_type(self, attr, line, obj):
+        """
+        Convert a string to an integer or a float if possible.
+
+        Args:
+            line (str): The input string to be converted.
+
+        Returns:
+            int, float, or str: The converted value if the
+            input matches the format of an integer or a float;
+            otherwise, the original input string.
+        """
+        if (hasattr(obj, attr)):
+            attr_type = type(getattr(obj, attr))
+            try:
+                return attr_type(line)
+            except ValueError:
+                pass
+        if re.match(r"^\d+$", line):
+            return int(line)
+        elif re.match(r"^\d+\.\d+$", line):
+            return float(line)
+        else:
+            return line
 
     def do_update(self, args):
         """Updates an instance based on the class name
@@ -165,6 +191,7 @@ class HBNBCommand(cmd.Cmd):
                 dicts = storage.all()
                 for key, value in dicts.items():
                     if (str(args[0]) + '.' + str(args[1])) == key:
+                        args[3] = self.value_type(args[2], args[3], value)
                         setattr(value, args[2], args[3])
                         value.save()
                         return

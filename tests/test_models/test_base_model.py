@@ -22,9 +22,9 @@ class TestBaseModel(unittest.TestCase):
     def test_method_docs(self):
         """ Test methods in ``BaseModel`` for documentation"""
         methods = [
-                BaseModel.__init__, BaseModel.__str__,
-                BaseModel.save, BaseModel.to_dict
-                ]
+            BaseModel.__init__, BaseModel.__str__,
+            BaseModel.save, BaseModel.to_dict
+        ]
         for meth in methods:
             self.assertIsNotNone(meth.__doc__)
 
@@ -68,12 +68,12 @@ class TestBaseModel(unittest.TestCase):
     def test_kwargs_input(self):
         """ Test ``BaseModel`` initialization with kwargs"""
         dic = {
-                'id': 'test_id',
-                'created_at': '2023-08-09T12:34:56.789012',
-                'updated_at': '2023-08-09T13:45:12.345678',
-                'name': 'Wills',
-                'value': 42
-                }
+            'id': 'test_id',
+            'created_at': '2023-08-09T12:34:56.789012',
+            'updated_at': '2023-08-09T13:45:12.345678',
+            'name': 'Wills',
+            'value': 42
+        }
         test_model = BaseModel(**dic)
 
         self.assertEqual(test_model.id, "test_id")
@@ -101,10 +101,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(test_dict["num"], 12)
         self.assertEqual(test_dict["float_num"], 12.21)
         self.assertEqual(test_dict["bool_val"], True)
-    
-    def does_this_Work(self):
-        '''help me'''
-        pass
 
 
 if __name__ == "__main__":
