@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
         print("Destroy command deletes an instance by class", end=' ')
         print("name and instance ID.\n")
 
-    def do_all(self, arg: str):
+    def do_all(self, arg):
         """Prints all string representation of all instances"""
         listofdicts = []
         args = arg.split('.')
