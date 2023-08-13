@@ -101,6 +101,10 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(test_dict["num"], 12)
         self.assertEqual(test_dict["float_num"], 12.21)
         self.assertEqual(test_dict["bool_val"], True)
+    
+    def does_this_Work(self):
+        '''help me'''
+        pass
 
 
 if __name__ == "__main__":
