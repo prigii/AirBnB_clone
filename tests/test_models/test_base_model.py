@@ -13,7 +13,13 @@ class TestBaseModel(unittest.TestCase):
     """ Test the class ``BaseModel`` """
 
     def setUp(self):
-        pass
+        self.model1 = BaseModel()
+        test_args = {'created_at': datetime(2017, 2, 10, 2, 6, 55, 258849),
+                     'updated_at': datetime(2017, 2, 10, 2, 6, 55, 258966),
+                     'id': '46458416-e5d5-4985-aa48-a2b369d03d2a',
+                     'name': 'model1'}
+        self.model2 = BaseModel(test_args)
+        self.model2.save()
 
     def test_class_doc(self):
         """ Test ``BaseModel`` class for documentation"""
@@ -101,6 +107,23 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(test_dict["num"], 12)
         self.assertEqual(test_dict["float_num"], 12.21)
         self.assertEqual(test_dict["bool_val"], True)
+
+    def test_instantiation(self):
+        self.assertIsInstance(self.model1, BaseModel)
+        self.assertTrue(hasattr(self.model1, "created_at"))
+        self.assertTrue(hasattr(self.model1, "id"))
+        self.assertTrue(hasattr(self.model1, "updated_at"))
+
+    def test_reinstantiation(self):
+        self.assertIsInstance(self.model2, BaseModel)
+
+    def test_save(self):
+        self.assertTrue(hasattr(self.model1, "updated_at"))
+        self.model1.save()
+        self.assertTrue(hasattr(self.model1, "updated_at"))
+        old_time = self.model2.updated_at
+        self.model2.save()
+        self.assertNotEqual(old_time, self.model2.updated_at)
 
 
 if __name__ == "__main__":
