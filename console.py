@@ -139,7 +139,7 @@ class HBNBCommand(cmd.Cmd):
         print("All command displays string representations of all instances.")
         print("Optionally, provide a class name to filter instances", end=' ')
         print("of a specific class.\n")
-    
+
     def value_type(self, attr, line, obj):
         """
         Convert a string to an integer or a float if possible.
