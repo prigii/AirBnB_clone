@@ -288,7 +288,7 @@ class HBNBCommand(cmd.Cmd):
             if len(split3) == 0:
                 print('** no instance found **')
             elif len(split3) == 1 and type(split3[1]) == dict:
-                for k, v in split2[1].items():
+                for k, v in split3[1].items():
                     HBNBCommand.do_update(self, class_name + ' ' + split3[0] +
                                           ' ' + k + ' ' + v)
             elif len(split3) == 1 and type(split3[1]) != dict:
