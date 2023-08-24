@@ -9,7 +9,7 @@ This project is an Airbnb clone's command interpreter, developed in Python. The 
 To start the Airbnb clone's command interpreter, follow these steps:
 
 1. Clone the project repository:
-   ```git clone https://github.com/Hasbi-sabah/AirBnB_clone```
+   ```git clone https://github.com/prigii/AirBnB_clone```
 
 2. Navigate to the project directory:
    ```cd AirBnB_clone```
