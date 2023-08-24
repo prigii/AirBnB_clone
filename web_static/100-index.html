@@ -3,51 +3,170 @@
     <head>
         <meta charset="UTF-8">
         <title>AirBnB</title>
-		<link rel="stylesheet" href="styles/3-header.css">
-		<link rel="stylesheet" href="styles/3-common.css">
-		<link rel="stylesheet" href="styles/3-footer.css">
+		<link rel="shortcut icon" href="images/icon.ico"/>
+		<link rel="stylesheet" href="styles/3-header.css"/>
+		<link rel="stylesheet" href="styles/4-common.css"/>
+		<link rel="stylesheet" href="styles/3-footer.css"/>
+        <link rel="stylesheet" href="styles/6-filters.css"/>
+		<link rel="stylesheet" href="styles/100-places.css"/>
   	</head>
     
     <body> 
         <header>
-         <img class="logo" source="">
-		 <img class="favicon" source="">
+            <div id="header_logo"></div>
         </header>
-		<div class="container">
-		<section class="filters">
-		<button class="button">Search</button>
-		<div class="location"><h3>Location</h3><h4>Fake content</h4>
-		<ul class="popover">Fake text for now
-		<li><ul><h2>State</h2></li>
-		<li>Cities</li></ul>
-		</ul>
-		</div>
-		<div class="amenities"><h3>Amenities</h3><h4>Fake content</h4>
-		<ul class="popover">Fake text for now</ul>
-		</div>
-		</section>
-		<section class="places">
-		<h1>Places</h1>
-		<article>Place names
-		<div class="price_by_night">Price by night</div>
-		<div class="information">Information section
-			<div class="max_guest">Number of guests</div>
-			<div class="number_rooms">Number of bedrooms</div>
-			<div class="number_bathrooms">Number of bathrooms</div>
-		</div>
-		<div class="user">Owner: <fake text></div>
-		<div class="description">Description</div>
-		<div class="amenities"><h2>Amenities</h2>
-		<ul><li>List of amenities</li></ul>
-		</div>
-		<div class="reviews"><h2>Reviews</h2>
-		<ul><li>List of reviews</li>
-		<p>From Bob Dylan the 27th January, 2017</p></ul>
-		</div>
-		</article>
-		</section>
-		</div>
+        <div class="container">
+			<section class="filters">
+				<button>Search</button>
+				<div class="location">
+					<h3>States</h3>
+					<h4>Michigan, Minnesota ...</h4>
+					<ul class="popover">
+						<li><h2>Michigan</h2>
+							<ul>
+								<li><h4>Page1</h4></li>
+								<li><h4>Page2</h4></li>
+							</ul>
+						</li>
+						<li><h2>Minnesota</h2>
+							<ul>
+								<li><h4>Page1</h4></li>
+								<li><h4>Page2</h4></li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+				<div class="amenities">
+					<h3>Amenities</h3>
+					<h4>Wifi, Kitchen, TV ...</h4>
+					<ul class="popover">
+						<li><h4>Wifi</h4>
+						<li><h4>Kitchen</h4>
+						<li><h4>TV</h4>
+						<li><h4>Bathroom</h4>
+					</ul>
+				</div>
+			</section>
+			<section class="places">
+				<h1>Places</h1>
+				<article>
+					<div class="headline">
+						<h2>My home</h2>
+						<div class="price_by_night">$50</div>
+					</div>
+					<div class="information">
+						<div class="max_guest">
+							<div class="guest_icon"></div>
+							<p>3 guests</p>
+						</div>
+						<div class="number_rooms">
+							<div class="bed_icon"></div>
+							<p>2 bedrooms</p>
+						</div>
+						<div class="number_bathrooms">
+							<div class="bath_icon"></div>
+							<p>1 Bathroom</p>
+						</div>
 		
+					</div>
+					<div class="owner"><b>Owner</b>: John Lennon</div>
+					<div class="description">
+						Lorem ipsum dolor sit amet, 
+						consectetur adipiscing elit, 
+						sed do eiusmod tempor
+					</div>
+				</article>
+				<article>
+					<div class="headline">
+						<h2>Tiny house</h2>
+						<div class="price_by_night">$30</div>
+					</div>
+					<div class="information">
+						<div class="max_guest">
+							<div class="guest_icon"></div>
+							<p>2 guests</p>
+						</div>
+						<div class="number_rooms">
+							<div class="bed_icon"></div>
+							<p>1 bedroom</p>
+						</div>
+						<div class="number_bathrooms">
+							<div class="bath_icon"></div>
+							<p>1 Bathroom</p>
+						</div>
+		
+					</div>
+					<div class="user"><b>Owner</b>: Adrienne</div>
+					<div class="description">
+						Lorem ipsum dolor sit amet, 
+						consectetur adipiscing elit, 
+						sed do eiusmod tempor
+					</div>
+					<div class="amenities">
+						<h2 class="amenities">Amenities</h2>
+						<ul>
+							<li><div class="tv_icon"></div>TV</li>
+							<li><div class="wifi_icon"></div>Wifi</li>
+							<li><div class="pet_icon"></div>Pet friendly</li>
+						</ul>
+					</div>
+					<div class="reviews">
+						<h2 class="article_subtitle">Reviews</h2>
+						<ul>
+							<li>
+								<div class="review_item">
+									<h3>From Bob Dylan on the 27th January, 2017.</h3>
+									<p class="review_text">Wow, what can I say? 
+										I'm a real rolling stone, you may have heard,
+										 but - by golly - I'd just as well settle
+										  down in this humble home, if you'd part with it -
+										   course, I'm sure you wouldn't. 
+										Real shame too. Oh well...</p>
+
+								</div>
+							</li>
+							<li>
+								<div class="review_item">
+									<h3>From Justin Majetich on the 28th April 1991</h3>
+									<p class="review_text">I was birthed in this here bathtub today!</p>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+				</article>
+				<article>
+					<div class="headline">
+						<h2>A suite</h2>
+						<div class="price_by_night">$100</div>
+					</div>
+					<div class="information">
+						<div class="max_guest">
+							<div class="guest_icon"></div>
+							<p>5 guests</p>
+						</div>
+						<div class="number_rooms">
+							<div class="bed_icon"></div>
+							<p>3 bedrooms</p>
+						</div>
+						<div class="number_bathrooms">
+							<div class="bath_icon"></div>
+							<p>2 bathrooms</p>
+						</div>
+		
+					</div>
+					<div class="user"><b>Owner</b>: Betty Holberton</div>
+					<div class="description">
+						Lorem ipsum dolor sit amet, 
+						consectetur adipiscing elit, 
+						sed do eiusmod tempor
+					</div>
+				</article>
+
+			</section>
+		</div>
+				
         <footer>
         Best School
         </footer>
