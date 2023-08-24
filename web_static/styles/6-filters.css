@@ -9,7 +9,7 @@
 .button {
 	font-size: 18px;
 	background-color: #ff5a5f;
-	font-color: #ffffff;
+	color: #ffffff;
 	height: 48px;
 	width: 20%;
 	border: 0;
@@ -18,35 +18,62 @@
 	margin-right: 30px;
 	
 }
-.button.hover {
+button:hover {
 	opacity: 90%;
 }
-.location, .amenities {
+.location {
+	display: inline-block;
 	height: 100%;
 	width: 25%;
-	border-right: 1px;
-	border-right-color: #DDDDDD;
-	font-weight: 600;
+	border-right: 1px solid #DDDDDD;
+	vertical-align: middle;
+	margin-left: 45px;
+}
+.amenities {
+	display: inline-block;
+	height: 100%;
+	width: 25%;
+	vertical-align: middle;
+	margin-left: 45px;
 }
 h3 {
 	font-weight: 600;
+	margin-top: 12px;
+	margin-bottom: 5px;
+	padding-left: 45px;
 }
 h4 {
 	font-weight: 400;
 	font-size: 14px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 45px;
 }
 .popover {
-	visibility: hidden;
-	font-color: #fafafa;
-	width: inherit;
-	border: 1px;
+	display: none;
+	color: #fafafa;
+	width: 100%;
+	list-style-type: none;
 	border-radius: 4px;
-	border-color: #dddddd;
+	border: 1px solid #dddddd;
+	margin-top: 8px;
+	margin-left: -1px;
+
+}
+.location:hover .popover {
+	display: inline-block;
+}
+.amenities:hover .popover {
+	display: inline-block;
 }
 ul {
-	list-style: dropdown;
+	list-style: none;
+	padding: 0px;
+	padding-bottom: 20px;
 }
 h2 {
 	font-size: 16px;
+	padding-left: 30px;
+	margin: 0px;
 	
 }
