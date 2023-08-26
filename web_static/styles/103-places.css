@@ -54,9 +54,12 @@ article h2 {
 	border-radius: 100%;
 	min-width: 60px;
 	height: 60px;
+	right: 0;
 }
 .information {
-	display: block;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	height: 80px;
 	width: 100px;
 	border-bottom: 1px solid #dddddd;
@@ -65,14 +68,16 @@ article h2 {
 	margin-bottom: 20px;
 }
 .max_guest, .number_of_rooms, .number_of_bathrooms {
-	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center top;
 	width: 100px;
 	text-align: center;
-	margin: 0px auto;
+	height: 100px;
+	line-height: 6em;
+	display: inline-block;
 }
 .owner {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin: 10px auto;
 }
 .description {
 	text-align: left;
@@ -167,7 +172,6 @@ article h3 {
 	background-size: cover;
 	width: 20px;
 	height: 20px;
-
 	margin-right: 10px;
 }
 
@@ -177,7 +181,6 @@ article h3 {
     background-size: cover;
 	width: 20px;
     height: 20px;
-
 	margin-right: 10px;
 }
 
@@ -187,6 +190,5 @@ article h3 {
 	background-size: cover;
     width: 20px;
 	height: 20px;
-
 	margin-right: 10px;
 }
